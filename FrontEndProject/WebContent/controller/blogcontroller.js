@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+app.controller('BlogController',function($scope,$location,BlogService){
+	$scope.saveBlog=function(){
+		BlogService.saveBlog($scope.blogPost).then(function(response){
+			$location.path('/getallblogs')
+		},function(response){
+			$scope.message=response.data.message
+			if(response.ststus==401){
+				$('#login-modal').modal();
+			}if(response.status==500)
+			{
+				$location.path('/saveblog')
+			}
+		})
+	}
+	/**
+	 * list of blogs approved
+	 */
+	$scope.blogsApproved=BlogService.blogsApproved().then(function(response){
+		$scope.blogsApproved=response.data;
+	},function(response){
+		console.log(response.status)
+	})
+	/**
+	 * list of blogs waiting for approvel
+	 */
+	$scope.blogsWaitingForApproval=BlogService.blogsWaitingForApproval().then(function(response){
+		$scope.blogsWaitingForApproval=response.data;
+	},function(response){
+		console.log(response.status)
+	})
+})

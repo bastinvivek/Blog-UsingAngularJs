@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+        <div class="container" ng-repeat="job in jobs">
+<h1><a href="">{{job.jobTitle}}</a></h1>
+                <p class="lead"><i class="fa fa-user"></i>Company Name <a href="">{{job.companyName}}</a>
+                </p>
+                <hr>
+                <p><i class="fa fa-calendar"></i> Posted on {{job.postedOn | date:'MM/dd/yyyy @ h:mma'}}</p>
+                <hr>
+                <h3><strong>Job Description</strong></h3>
+				<div class="panel-body lead">{{job.jobDescription}}</div>
+				<hr>
+        <h3><strong> Skills Required </strong></h3><h5>{{job.skillsRequired}}</h5>
+        <hr>
+                <h3><strong>Years Of Experience</strong></h3>
+                
+                <h5>{{job.yearsOfExperience}}</h5>
+                <hr>
+				<div class="panel-footer panel-right lead">  <span class="glyphicon glyphicon-map-marker"></span>{{job.location}}</div>
+				
+        </div>
+        
+
+</body>
+</html>

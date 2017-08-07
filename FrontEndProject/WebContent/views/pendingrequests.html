@@ -1,0 +1,8 @@
+<div class="container">
+<h1>List Of Pending Requests</h1>
+<table class="table">
+<tr ng-repeat="pr in listOfPendingRequests">
+<td>{{pr.fromId}}</td><td><a href="" ng-click="updatePendingRequests(pr.fromId,'A')" class="btn btn-default">Accept</a></td>
+<td><a href="" ng-click="updatePendingRequests(pr.fromId,'D')" class="btn btn-default">Reject</a></td>
+</tr>
+</table></div>

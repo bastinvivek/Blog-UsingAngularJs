@@ -1,0 +1,45 @@
+/**
+ * 
+ */
+app.controller('BlogDetailController',function($scope,$location,BlogService,$routeParams){
+	var id=$routeParams.id
+	$scope.showComments=true;
+	$scope.blogPost=BlogService.getBlogPost(id).then(function(response){
+		$scope.blogPost=response.data
+	},function(response){
+		console.log(response.status)
+	})
+	$scope.updateApproval=function(){
+		BlogService.updateBlog($scope.blogPost).then(function(response){
+			console.log(response.status)
+			console.log(response.data)
+			alert('u r in update blog')
+			$location.path('/getallblogs')
+			
+		},function(response){
+			console.log(response.status)
+			console.log(response.data)
+			$location.path('/getBlogForApproval/'+id)
+		})
+	}
+	$scope.addComment=function(){
+		$scope.blogComment.blogPost=$scope.blogPost
+		BlogService.addComment($scope.blogComment).then(function(response){
+			$scope.blogComment.body=''
+				console.log(response.status)
+		},function(response){
+			console.log(response.status)
+		})
+	}
+	$scope.getBlogComments=function(blogId){
+		$scope.showComments=true;
+		BlogService.getBlogComments(blogId).then(function(response){
+			$scope.blogComments=response.data;
+			console.log(response.data)
+			console.log(response.status)
+		},function(response){
+			console.log(response.status)
+		    console.log(response.data)
+		})
+	}
+})

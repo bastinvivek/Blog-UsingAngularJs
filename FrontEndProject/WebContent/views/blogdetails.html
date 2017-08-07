@@ -1,0 +1,41 @@
+<html>
+<head>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div>{{blogPost.title}}</div>
+						<span><strong>Created By:</strong>{{blogPost.createdBy.username}}</span>
+						<span><strong>on:</strong>{{blogPost.postedOn |
+							date:'medium'}}</span>
+					</div>
+					<div class="panel-body">{{blogPost.description}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			
+			<a href="" ng-click="getBlogComments(blogPost.id)">Show
+				blogComments</a>
+			<ul ng-show="showComments">
+				
+				<li ng-repeat="comment in blogComments">
+					<p class="mb-0">{{comment.body}}</p>
+					<footer class="blockquote-footer"> Commented by: <cite
+						title="Source Title">{{comment.commentedBy.username}}</cite>
+					Commented on: <cite title="Source Title">{{comment.commentedOn
+						| date:'MM/DD/yyyy'}}</cite></footer>
+				</li>
+			<form>
+				<textarea ng-model="blogComment.body"></textarea>
+				<br> <input type="submit" ng-click="addComment()" value="post">
+			</form>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

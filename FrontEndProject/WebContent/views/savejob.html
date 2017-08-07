@@ -1,0 +1,50 @@
+<!DOCTYPE div PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style>
+</style>
+</head>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6">
+			<img src="images/job.jpg" style="width: 100%">
+		</div>
+		<div class="col-sm-6">
+			{{error.message}}
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control"
+						placeholder="Enter Job Title" ng-model="job.jobTitle">
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" placeholder="Enter Job Description"
+						ng-model="job.jobDescription"></textarea>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control"
+						placeholder="Enter Years Of Experience"
+						ng-model="job.yearsOfExperience">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control"
+						placeholder="Enter Skills Required" ng-model="job.skillsRequired">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Enter Salary"
+						ng-model="job.salary">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control"
+						placeholder="Enter Location" ng-model="job.location">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control"
+						placeholder="Enter CompanyName" ng-model="job.companyName">
+				</div>
+
+				<button class="btn btn-primary" type="submit" ng-click="saveJob()">SaveJob</button>
+			</form>
+		</div>
+	</div>
+</div>
+</html>

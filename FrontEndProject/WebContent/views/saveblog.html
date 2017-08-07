@@ -1,0 +1,39 @@
+<html>
+<head>
+
+<style>
+body {
+    background-color: lightblue;
+}
+h4 { 
+color:blue;
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-offset-4 col-md-5">
+<div class="header">
+<h2 class="title">Post Your Blog</h2>
+</div>
+
+<div class="form-group">
+  <label for="usr">Blog Title</label>
+  <input type="text" class="form-control" ng-model="blogPost.title" >
+</div>
+ <div class="form-group">
+  <label for="comment">Blog Description</label>
+  <textarea class="form-control" rows="5" ng-model="blogPost.description"></textarea>
+</div>
+<button class="btn btn-primary"  ng-click="saveBlog()" type="submit" >Post Blog</button>
+ </div> 
+ </div>
+ </div>
+ </body>
+</html>
